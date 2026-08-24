@@ -1,0 +1,393 @@
+:root {
+  --ink: #1d2142;
+  --muted: #676b86;
+  --cream: #fffaf0;
+  --paper: #ffffff;
+  --yellow: #ffc857;
+  --coral: #ff7163;
+  --purple: #6c63d8;
+  --border: #e7e3da;
+  --shadow: 0 24px 60px rgba(41, 35, 96, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand__icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--purple);
+  border-radius: 12px;
+  font-size: 1.25rem;
+  transform: rotate(-4deg);
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-weight: 650;
+}
+
+nav a {
+  transition: color 160ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--purple);
+}
+
+.hero {
+  width: min(1120px, calc(100% - 40px));
+  min-height: 650px;
+  margin: 0 auto;
+  padding: 70px 0 100px;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 90px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero__subtitle {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding: 7px 13px;
+  color: var(--purple);
+  background: rgba(108, 99, 216, 0.1);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 700px;
+  margin-bottom: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 7vw, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+h1 span {
+  color: var(--purple);
+}
+
+.hero__text {
+  max-width: 570px;
+  margin-bottom: 34px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 22px;
+  color: white;
+  background: var(--ink);
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(29, 33, 66, 0.22);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 750;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(29, 33, 66, 0.28);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+.primary-button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+.message {
+  min-height: 28px;
+  margin: 18px 0 0;
+  color: var(--purple);
+  font-weight: 750;
+}
+
+.piano-card {
+  position: relative;
+  padding: 96px 40px 38px;
+  overflow: hidden;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  border-radius: 36px;
+  box-shadow: 14px 14px 0 var(--ink);
+  transform: rotate(2deg);
+}
+
+.piano-card::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -135px;
+  right: -80px;
+  background: var(--coral);
+  border-radius: 50%;
+}
+
+.piano-card p {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.music-note {
+  position: absolute;
+  z-index: 2;
+  font-family: Georgia, serif;
+  font-weight: 700;
+}
+
+.note-one {
+  top: 28px;
+  left: 42px;
+  color: var(--purple);
+  font-size: 3.2rem;
+  transform: rotate(-14deg);
+}
+
+.note-two {
+  top: 36px;
+  right: 54px;
+  color: white;
+  font-size: 2.6rem;
+  transform: rotate(10deg);
+}
+
+.piano {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 220px;
+  overflow: hidden;
+  background: white;
+  border: 4px solid var(--ink);
+  border-radius: 13px;
+  box-shadow: 0 12px 0 rgba(29, 33, 66, 0.16);
+}
+
+.white-key {
+  border-right: 2px solid var(--ink);
+}
+
+.white-key:last-of-type {
+  border-right: 0;
+}
+
+.black-key {
+  position: absolute;
+  top: 0;
+  width: 10%;
+  height: 58%;
+  background: var(--ink);
+  border-radius: 0 0 7px 7px;
+}
+
+.black-key--1 { left: 9.2%; }
+.black-key--2 { left: 23.5%; }
+.black-key--3 { left: 52%; }
+.black-key--4 { left: 66.3%; }
+.black-key--5 { left: 80.6%; }
+
+.lessons {
+  padding: 110px max(20px, calc((100% - 1120px) / 2));
+  background: var(--paper);
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 52px;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.lesson-card {
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.lesson-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.lesson-card__number {
+  display: inline-block;
+  margin-bottom: 42px;
+  color: var(--coral);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.lesson-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.lesson-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+footer {
+  padding: 28px max(20px, calc((100% - 1120px) / 2));
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  background: var(--ink);
+  font-size: 0.86rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer span {
+  color: var(--coral);
+}
+
+@media (max-width: 800px) {
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 40px;
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .piano-card {
+    max-width: 520px;
+  }
+
+  .lesson-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header,
+  .hero {
+    width: min(100% - 28px, 1120px);
+  }
+
+  h1 {
+    font-size: 3.15rem;
+  }
+
+  .piano-card {
+    padding: 78px 22px 28px;
+    border-radius: 26px;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  .piano {
+    height: 170px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
