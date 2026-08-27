@@ -263,6 +263,75 @@ a:focus-visible {
 .black-key--4 { left: 66.3%; }
 .black-key--5 { left: 80.6%; }
 
+.video-section {
+  padding: 110px max(20px, calc((100% - 1120px) / 2));
+  display: grid;
+  grid-template-columns: 0.65fr 1fr;
+  align-items: center;
+  gap: 70px;
+  color: white;
+  background: var(--ink);
+}
+
+.video-section__copy p:last-child {
+  max-width: 430px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.video-section .eyebrow {
+  color: var(--yellow);
+}
+
+.video-window {
+  overflow: hidden;
+  background: #10132a;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  box-shadow: 16px 16px 0 var(--purple);
+}
+
+.video-window__bar {
+  height: 48px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #292d52;
+}
+
+.video-window__bar span {
+  width: 11px;
+  height: 11px;
+  background: var(--coral);
+  border-radius: 50%;
+}
+
+.video-window__bar span:nth-child(2) {
+  background: var(--yellow);
+}
+
+.video-window__bar span:nth-child(3) {
+  background: #70d6a7;
+}
+
+.video-window__bar p {
+  margin: 0 0 0 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.video-window video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: contain;
+  background: #080a18;
+}
+
 .lessons {
   padding: 110px max(20px, calc((100% - 1120px) / 2));
   background: var(--paper);
@@ -346,6 +415,11 @@ footer span {
     gap: 60px;
   }
 
+  .video-section {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
   .piano-card {
     max-width: 520px;
   }
@@ -373,6 +447,10 @@ footer span {
 
   .piano {
     height: 170px;
+  }
+
+  .video-window {
+    box-shadow: 8px 8px 0 var(--purple);
   }
 
   footer {
