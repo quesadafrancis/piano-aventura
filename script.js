@@ -1,39 +1,27 @@
-const startButton = document.querySelector("#startButton");
-const welcomeMessage = document.querySelector("#welcomeMessage");
-const currentYear = document.querySelector("#currentYear");
-const themeToggle = document.querySelector("#themeToggle");
-const themeIcon = themeToggle.querySelector(".theme-toggle__icon");
-const themeText = themeToggle.querySelector(".theme-toggle__text");
+const videoInput = document.querySelector("#videoUpload");
+const videoPlayer = document.querySelector("#presentationVideo");
+const uploadStatus = document.querySelector("#uploadStatus");
+let selectedVideoUrl;
 
-const savedTheme = localStorage.getItem("piano-aventura-theme");
-const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+document.querySelector("#currentYear").textContent = new Date().getFullYear();
 
-function setTheme(theme) {
-  const isDark = theme === "dark";
+videoInput.addEventListener("change", () => {
+  const [videoFile] = videoInput.files;
+  if (!videoFile) return;
 
-  document.documentElement.dataset.theme = theme;
-  themeToggle.setAttribute("aria-pressed", String(isDark));
-  themeToggle.setAttribute(
-    "aria-label",
-    isDark ? "Activar modo claro" : "Activar modo oscuro"
-  );
-  themeIcon.textContent = isDark ? "☀" : "☾";
-  themeText.textContent = isDark ? "Modo claro" : "Modo oscuro";
-}
+  if (!videoFile.type.startsWith("video/")) {
+    uploadStatus.textContent = "Por favor, selecciona un archivo de video válido.";
+    videoInput.value = "";
+    return;
+  }
 
-setTheme(savedTheme || (systemPrefersDark ? "dark" : "light"));
-
-themeToggle.addEventListener("click", () => {
-  const nextTheme =
-    document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-
-  setTheme(nextTheme);
-  localStorage.setItem("piano-aventura-theme", nextTheme);
+  if (selectedVideoUrl) URL.revokeObjectURL(selectedVideoUrl);
+  selectedVideoUrl = URL.createObjectURL(videoFile);
+  videoPlayer.src = selectedVideoUrl;
+  videoPlayer.load();
+  uploadStatus.textContent = `Video seleccionado: ${videoFile.name}`;
 });
 
-currentYear.textContent = new Date().getFullYear();
-
-startButton.addEventListener("click", () => {
-  welcomeMessage.textContent = "¡Excelente! Tu aventura musical acaba de comenzar. 🎹";
-  startButton.textContent = "¡A tocar!";
+window.addEventListener("beforeunload", () => {
+  if (selectedVideoUrl) URL.revokeObjectURL(selectedVideoUrl);
 });

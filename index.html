@@ -1,137 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Una página de ejemplo creada únicamente con HTML, CSS y JavaScript."
-    />
-    <title>Piano Aventura</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand__icon" aria-hidden="true">♪</span>
-        Piano Aventura
-      </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Aventura del Piano Don Francisco: conoce este sitio musical.">
+  <title>La Aventura del Piano Don Francisco</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="notes" aria-hidden="true"><span>♪</span><span>♫</span></div>
+      <p class="eyebrow">Bienvenidos</p>
+      <h1 id="page-title">LA AVENTURA DEL PIANO DON FRANCISCO</h1>
+      <p class="intro">Conoce este espacio musical y descubre todo lo que podrás aprender.</p>
 
-      <nav aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#video">Video</a>
-        <a href="#lecciones">Mis Clases</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-
-      <button
-        class="theme-toggle"
-        id="themeToggle"
-        type="button"
-        aria-label="Activar modo oscuro"
-        aria-pressed="false"
-      >
-        <span class="theme-toggle__icon" aria-hidden="true">☾</span>
-        <span class="theme-toggle__text">Modo oscuro</span>
-      </button>
-    </header>
-
-    <main>
-      <section class="hero" id="inicio">
-        <div class="hero__content">
-          <p class="eyebrow">Sitio en construcción</p>
-          <p class="hero__subtitle">Clases virtuales por celular</p>
-          <h1 class="resource-heading">
-            Si deseas ver y bajar partituras de canciones haz clic en
-            <a href="https://arcamusical.com">arcamusical.com</a>
-          </h1>
-          <p class="hero__text">
-            Una página sencilla de ejemplo, hecha solo con HTML, CSS y
-            JavaScript. Presiona el botón para comenzar la aventura.
-          </p>
-          <button class="primary-button" id="startButton" type="button">
-            Comenzar aventura
-            <span aria-hidden="true">→</span>
-          </button>
-          <p class="message" id="welcomeMessage" role="status" aria-live="polite"></p>
+      <div class="video-window">
+        <div class="video-bar" aria-hidden="true">
+          <span></span><span></span><span></span><p>Presentación</p>
         </div>
+        <video id="presentationVideo" controls preload="metadata">
+          <source src="Assets/veh%C3%ADculos.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+      </div>
 
-        <div class="piano-card" aria-label="Ilustración de un teclado de piano">
-          <div class="music-note note-one" aria-hidden="true">♪</div>
-          <div class="music-note note-two" aria-hidden="true">♫</div>
-          <div class="piano" aria-hidden="true">
-            <span class="white-key"></span>
-            <span class="white-key"></span>
-            <span class="white-key"></span>
-            <span class="white-key"></span>
-            <span class="white-key"></span>
-            <span class="white-key"></span>
-            <span class="white-key"></span>
-            <i class="black-key black-key--1"></i>
-            <i class="black-key black-key--2"></i>
-            <i class="black-key black-key--3"></i>
-            <i class="black-key black-key--4"></i>
-            <i class="black-key black-key--5"></i>
-          </div>
-          <p>Practica · Aprende · Disfruta</p>
-        </div>
-      </section>
-
-      <section class="video-section" id="video">
-        <div class="video-section__copy">
-          <p class="eyebrow">Aprende desde donde estés</p>
-          <h2>Tu clase, siempre a la vista.</h2>
-          <p>
-            Reproduce el video, pausa cuando lo necesites y practica cada parte
-            a tu propio ritmo.
-          </p>
-        </div>
-
-        <div class="video-window">
-          <div class="video-window__bar" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <p>Clase virtual</p>
-          </div>
-          <video controls preload="metadata">
-            <source src="Assets/veh%C3%ADculos.mp4" type="video/mp4" />
-            Tu navegador no puede reproducir este video.
-          </video>
-        </div>
-      </section>
-
-      <section class="lessons" id="lecciones">
-        <div class="section-heading">
-          <p class="eyebrow">Lecciones para comenzar</p>
-          <h2>Todo gran músico empezó con una nota.</h2>
-        </div>
-
-        <div class="lesson-grid">
-          <article class="lesson-card">
-            <span class="lesson-card__number">01</span>
-            <h3>Conoce las teclas</h3>
-            <p>Descubre las notas y aprende a ubicarlas en el teclado.</p>
-          </article>
-          <article class="lesson-card">
-            <span class="lesson-card__number">02</span>
-            <h3>Sigue el ritmo</h3>
-            <p>Practica pulsos sencillos y mantén un ritmo constante.</p>
-          </article>
-          <article class="lesson-card">
-            <span class="lesson-card__number">03</span>
-            <h3>Toca tu canción</h3>
-            <p>Combina lo aprendido para interpretar una melodía fácil.</p>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer id="contacto">
-      <p>Hecho con <span aria-label="amor">♥</span> y JavaScript puro.</p>
-      <p>© <span id="currentYear"></span> Piano Aventura</p>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
+      <div class="upload-area">
+        <label class="upload-button" for="videoUpload"><span aria-hidden="true">▶</span> Seleccionar un video</label>
+        <input id="videoUpload" type="file" accept="video/*">
+        <p id="uploadStatus" role="status" aria-live="polite">Puedes elegir un video de tu dispositivo para verlo en esta ventana.</p>
+      </div>
+    </section>
+  </main>
+  <footer>© <span id="currentYear"></span>&nbsp; La Aventura del Piano Don Francisco</footer>
+  <script src="script.js"></script>
+</body>
 </html>
